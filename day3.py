@@ -208,21 +208,14 @@ for idx, num in enumerate(puzzle):
         start_idx = idx
 
 def calculate_joltage(bank):
-    left = 0
-    right = 0
-    left = loop_Through_bank(bank, left, right)
-    right = loop_Through_bank(bank, right, left)
-    return int(f"{str(left)}{str(right)}")
-
-
-def loop_Through_bank(bank, res, restriction):
-    for battery in bank:
-        battery = int(battery)
-        if battery > res and battery != restriction:
-            res = battery
-        else:
-            pass
-    return res
+    check_set = set()
+    max_joltage = 0
+    for i in range(len(bank)):
+        for j in range(i + 1, len(bank)):
+            joltage = int(bank[i] + bank[j])
+            if joltage > max_joltage:
+                max_joltage = joltage
+    return max_joltage
 
 
 def main():
