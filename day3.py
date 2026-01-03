@@ -207,5 +207,25 @@ for idx, num in enumerate(puzzle):
         bank_list.append(puzzle[start_idx:idx]) if start_idx == 0 else bank_list.append(puzzle[start_idx+1:idx])
         start_idx = idx
 
+def calculate_joltage(bank):
+    left = 0
+    right = 0
+    for battery in bank:
+        if battery > left:
+            left = battery
+        elif battery > right:
+            right = battery
+        else:
+            pass
+    return left + right
 
+
+# def main()
+#     total_output_joltage == sum()
+#     for bank in bank_list():
+#         sum
+
+
+# if "__name__" == "__main__":
+#     return main()
     
