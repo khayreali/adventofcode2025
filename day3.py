@@ -218,8 +218,7 @@ def calculate_joltage(bank):
             right = battery
         else:
             pass
-    return left + right
-
+    return int(f"{str(left)}{str(right)}")
 
 def main():
     total_output_joltage = 0
