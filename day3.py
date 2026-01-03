@@ -211,6 +211,7 @@ def calculate_joltage(bank):
     left = 0
     right = 0
     for battery in bank:
+        battery = int(battery)
         if battery > left:
             left = battery
         elif battery > right:
@@ -220,12 +221,13 @@ def calculate_joltage(bank):
     return left + right
 
 
-# def main()
-#     total_output_joltage == sum()
-#     for bank in bank_list():
-#         sum
+def main():
+    total_output_joltage = 0
+    for bank in bank_list:
+        total_output_joltage += calculate_joltage(bank)
+    print(total_output_joltage)
 
 
-# if "__name__" == "__main__":
-#     return main()
+if __name__ == "__main__":
+    main()
     
