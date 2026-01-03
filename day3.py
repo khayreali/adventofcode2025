@@ -218,7 +218,7 @@ def calculate_joltage(bank):
 def loop_Through_bank(bank, res, restriction):
     for battery in bank:
         battery = int(battery)
-        if battery > res and not restriction:
+        if battery > res and battery != restriction:
             res = battery
         else:
             pass
