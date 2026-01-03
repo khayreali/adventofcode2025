@@ -210,15 +210,20 @@ for idx, num in enumerate(puzzle):
 def calculate_joltage(bank):
     left = 0
     right = 0
+    left = loop_Through_bank(bank, left, right)
+    right = loop_Through_bank(bank, right, left)
+    return int(f"{str(left)}{str(right)}")
+
+
+def loop_Through_bank(bank, res, restriction):
     for battery in bank:
         battery = int(battery)
-        if battery > left:
-            left = battery
-        elif battery > right:
-            right = battery
+        if battery > res and not restriction:
+            res = battery
         else:
             pass
-    return int(f"{str(left)}{str(right)}")
+    return res
+
 
 def main():
     total_output_joltage = 0
