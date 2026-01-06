@@ -18,16 +18,25 @@ def traverse_graph(graph):
     ROW = len(graph)
     COL = len(graph[0])
 
-    # for row in range(ROW):
-    #     for col in range(COL):
-    #         # if check_forklift_access(row, col):
-    #         #     res += 1
+    for row in range(ROW):
+        for col in range(COL):
+            if check_forklift_access(graph, row, col):
+                res += 1
     return res
 
 
-# def check_forklift_access(row, col)
-#     directions = [row-1, row+1, col-1, col+1]
-#     for direction in directions:
+def check_forklift_access(graph, row, col):
+    directions = [(row+1, col), (row-1, col), (row,col+1), (row,col-1)]
+    tally = 0
+    for direction in directions:
+        try:
+            if graph[direction[0], direction[1]] == "@":
+                tally += 1
+            if tally == 4:
+                return False
+        except:
+            continue
+    return True
         
 
 
