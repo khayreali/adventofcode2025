@@ -1,7 +1,6 @@
 from utils import read_input
 
 puzzle = read_input(4)
-print(puzzle)
 puzzle_list = []
 tmp_list = []
 for char in puzzle:
@@ -12,9 +11,8 @@ for char in puzzle:
     else:
         tmp_list.append(char)
 
-res = 0
-
 def traverse_graph(graph):
+    res = 0
     ROW = len(graph)
     COL = len(graph[0])
 
@@ -30,7 +28,7 @@ def check_forklift_access(graph, row, col):
     tally = 0
     for direction in directions:
         try:
-            if graph[direction[0], direction[1]] == "@":
+            if graph[direction[0]][direction[1]] == "@":
                 tally += 1
             if tally == 4:
                 return False
@@ -41,7 +39,8 @@ def check_forklift_access(graph, row, col):
 
 
 def main():
-    return traverse_graph(puzzle_list)
+    # print(traverse_graph(puzzle_list))
+    print(len(puzzle))
 
 
 
