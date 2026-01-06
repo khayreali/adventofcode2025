@@ -24,23 +24,26 @@ def traverse_graph(graph):
 
 
 def check_forklift_access(graph, row, col):
-    directions = [(row+1, col), (row-1, col), (row,col+1), (row,col-1)]
+    if graph[row][col] != "@":
+        return False
+    
+    directions = [
+        (-1, -1), (-1, 0), (-1, 1),
+        (0, -1),           (0, 1),
+        (1, -1),  (1, 0),  (1, 1)
+    ]
     tally = 0
-    for direction in directions:
-        try:
-            if graph[direction[0]][direction[1]] == "@":
+    for dr, dc in directions:
+        new_row, new_col = row + dr, col + dc
+        if 0 <= new_row < len(graph) and 0 <= new_col < len(graph[0]):
+            if graph[new_row][new_col] == "@":
                 tally += 1
-            if tally == 4:
-                return False
-        except:
-            continue
-    return True
+    return tally < 4
         
 
 
 def main():
-    # print(traverse_graph(puzzle_list))
-    print(len(puzzle))
+    print(traverse_graph(puzzle_list))
 
 
 
