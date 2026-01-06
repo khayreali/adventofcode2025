@@ -31,10 +31,10 @@ def traverse_graph(graph):
         
 
 
-# def main():
-#     return traverse_graph(puzzle_list)
+def main():
+    return traverse_graph(puzzle_list)
 
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
