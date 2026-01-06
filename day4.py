@@ -10,6 +10,8 @@ for char in puzzle:
         continue
     else:
         tmp_list.append(char)
+if tmp_list:
+    puzzle_list.append(tmp_list)
 
 def traverse_graph(graph):
     res = 0
