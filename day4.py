@@ -43,9 +43,30 @@ def check_forklift_access(graph, row, col):
     return tally < 4
         
 
+def traverse_graph_part2(graph):
+    total_removed = 0
+    
+    while True:
+        to_remove = []
+        for row in range(len(graph)):
+            for col in range(len(graph[0])):
+                if check_forklift_access(graph, row, col):
+                    to_remove.append((row, col))
+        
+        if not to_remove:
+            break
+        
+        for row, col in to_remove:
+            graph[row][col] = "."
+        
+        total_removed += len(to_remove)
+    
+    return total_removed
+
 
 def main():
     print(traverse_graph(puzzle_list))
+    print(traverse_graph_part2(puzzle_list))
 
 
 
